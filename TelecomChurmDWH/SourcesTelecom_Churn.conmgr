@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalHost.Telecom_Churn"
+  DTS:DTSID="{11B52FCD-5667-4E7B-AD97-E581DB759FC1}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=Telecom_Churn;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-TelecomChurmDWH-{11B52FCD-5667-4E7B-AD97-E581DB759FC1}LocalHost.Telecom_Churn;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

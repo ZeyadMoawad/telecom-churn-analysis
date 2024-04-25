@@ -1,0 +1,907 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/23/2024 3:05:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-ERHQ26V"
+  DTS:CreatorName="DESKTOP-ERHQ26V\ZiaD"
+  DTS:DTSID="{B95C12D7-D154-4F19-9173-BAE4EC439730}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim_Internet_Service_Details ETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{648971EB-F010-4292-AA17-205517CC44B2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Dim_Internet_Service_Details"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D3B25EF3-6136-44B5-95FC-947C1D01BEE6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Dim_Internet_Service_Details"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DEST - Dim_Internet_Service_Details"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Internet_Service_Details]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Connections[OleDbConnection]"
+                  connectionManagerID="{0FAA7850-234E-4581-9445-997E7D8442C7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TelecomChurnDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Internet_Service_ID]"
+                      cachedDataType="i4"
+                      cachedName="Internet_Service_ID"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Internet_Service_ID]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Internet_Service_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Online_Security]"
+                      cachedDataType="bool"
+                      cachedName="Online_Security"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Online_Security]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Online_Security]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Online_Backup]"
+                      cachedDataType="bool"
+                      cachedName="Online_Backup"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Online_Backup]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Online_Backup]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Device_Pro_Plan]"
+                      cachedDataType="bool"
+                      cachedName="Device_Pro_Plan"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Device_Pro_Plan]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Device_Pro_Plan]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Premium_TSupport]"
+                      cachedDataType="bool"
+                      cachedName="Premium_TSupport"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Premium_TSupport]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Premium_TSupport]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Streaming_TV]"
+                      cachedDataType="bool"
+                      cachedName="Streaming_TV"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Streaming_TV]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_TV]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Streaming_Movies]"
+                      cachedDataType="bool"
+                      cachedName="Streaming_Movies"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Streaming_Movies]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_Movies]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Streaming_Music]"
+                      cachedDataType="bool"
+                      cachedName="Streaming_Music"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Streaming_Music]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_Music]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Unlimited_Data]"
+                      cachedDataType="bool"
+                      cachedName="Unlimited_Data"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Unlimited_Data]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Unlimited_Data]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Avg_Monthly_GB]"
+                      cachedDataType="i4"
+                      cachedName="Avg_Monthly_GB"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Avg_Monthly_GB]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Avg_Monthly_GB]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Total_Extra_Data_Charges]"
+                      cachedDataType="i4"
+                      cachedName="Total_Extra_Data_Charges"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Total_Extra_Data_Charges]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Total_Extra_Data_Charges]" />
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].Columns[Internet_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Internet_Type"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Internet_Type]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Match Output].Columns[Internet_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Internet_Service_Key]"
+                      dataType="i4"
+                      name="Internet_Service_Key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Internet_Service_ID]"
+                      dataType="i4"
+                      name="Internet_Service_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Online_Security]"
+                      dataType="bool"
+                      name="Online_Security" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Online_Backup]"
+                      dataType="bool"
+                      name="Online_Backup" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Device_Pro_Plan]"
+                      dataType="bool"
+                      name="Device_Pro_Plan" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Premium_TSupport]"
+                      dataType="bool"
+                      name="Premium_TSupport" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Streaming_TV]"
+                      dataType="bool"
+                      name="Streaming_TV" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Streaming_Movies]"
+                      dataType="bool"
+                      name="Streaming_Movies" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Streaming_Music]"
+                      dataType="bool"
+                      name="Streaming_Music" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Unlimited_Data]"
+                      dataType="bool"
+                      name="Unlimited_Data" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Avg_Monthly_GB]"
+                      dataType="i4"
+                      name="Avg_Monthly_GB" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Total_Extra_Data_Charges]"
+                      dataType="i4"
+                      name="Total_Extra_Data_Charges" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input].ExternalColumns[Internet_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Internet_Type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP - Internet_Type"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select Internet_Service_ID , Internet_Type 
+From  Internet_Services</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (Select Internet_Service_ID , Internet_Type 
+From  Internet_Services) [refTable]
+where [refTable].[Internet_Service_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Internet_Service_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Internet_Type" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Internet_Service_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Connections[OleDbConnection]"
+                  connectionManagerID="{11B52FCD-5667-4E7B-AD97-E581DB759FC1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Telecom_Churn]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Inputs[Lookup Input].Columns[Internet_Service_ID]"
+                      cachedDataType="i4"
+                      cachedName="Internet_Service_ID"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Internet_Service_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Internet_Service_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Match Output].Columns[Internet_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Match Output].Columns[Internet_Type]"
+                      name="Internet_Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Internet_Type</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - Internet_Service_Detail Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customer_Internet]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Connections[OleDbConnection]"
+                  connectionManagerID="{11B52FCD-5667-4E7B-AD97-E581DB759FC1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Telecom_Churn]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Internet_Service_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Internet_Service_ID]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Internet_Service_ID]"
+                      name="Internet_Service_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Customer_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Customer_ID]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Customer_ID]"
+                      name="Customer_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Online_Security]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Online_Security]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Online_Security]"
+                      name="Online_Security"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Online_Backup]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Online_Backup]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Online_Backup]"
+                      name="Online_Backup"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Device_Pro_Plan]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Device_Pro_Plan]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Device_Pro_Plan]"
+                      name="Device_Pro_Plan"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Premium_TSupport]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Premium_TSupport]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Premium_TSupport]"
+                      name="Premium_TSupport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_TV]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Streaming_TV]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_TV]"
+                      name="Streaming_TV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_Movies]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Streaming_Movies]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_Movies]"
+                      name="Streaming_Movies"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_Music]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Streaming_Music]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Streaming_Music]"
+                      name="Streaming_Music"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Unlimited_Data]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Unlimited_Data]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Unlimited_Data]"
+                      name="Unlimited_Data"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Avg_Monthly_GB]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Avg_Monthly_GB]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Avg_Monthly_GB]"
+                      name="Avg_Monthly_GB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Total_Extra_Data_Charges]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Total_Extra_Data_Charges]"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].Columns[Total_Extra_Data_Charges]"
+                      name="Total_Extra_Data_Charges"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Internet_Service_ID]"
+                      dataType="i4"
+                      name="Internet_Service_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Customer_ID]"
+                      dataType="i4"
+                      name="Customer_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Online_Security]"
+                      dataType="bool"
+                      name="Online_Security" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Online_Backup]"
+                      dataType="bool"
+                      name="Online_Backup" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Device_Pro_Plan]"
+                      dataType="bool"
+                      name="Device_Pro_Plan" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Premium_TSupport]"
+                      dataType="bool"
+                      name="Premium_TSupport" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Streaming_TV]"
+                      dataType="bool"
+                      name="Streaming_TV" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Streaming_Movies]"
+                      dataType="bool"
+                      name="Streaming_Movies" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Streaming_Music]"
+                      dataType="bool"
+                      name="Streaming_Music" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Unlimited_Data]"
+                      dataType="bool"
+                      name="Unlimited_Data" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Avg_Monthly_GB]"
+                      dataType="i4"
+                      name="Avg_Monthly_GB" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output].ExternalColumns[Total_Extra_Data_Charges]"
+                      dataType="i4"
+                      name="Total_Extra_Data_Charges" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Customer_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Customer_ID]"
+                      name="Customer_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Internet_Service_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Internet_Service_ID]"
+                      name="Internet_Service_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Online_Security]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Online_Security]"
+                      name="Online_Security" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Online_Backup]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Online_Backup]"
+                      name="Online_Backup" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Device_Pro_Plan]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Device_Pro_Plan]"
+                      name="Device_Pro_Plan" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Premium_TSupport]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Premium_TSupport]"
+                      name="Premium_TSupport" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Streaming_TV]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Streaming_TV]"
+                      name="Streaming_TV" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Streaming_Movies]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Streaming_Movies]"
+                      name="Streaming_Movies" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Streaming_Music]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Streaming_Music]"
+                      name="Streaming_Music" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Unlimited_Data]"
+                      dataType="bool"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Unlimited_Data]"
+                      name="Unlimited_Data" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Avg_Monthly_GB]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Avg_Monthly_GB]"
+                      name="Avg_Monthly_GB" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Total_Extra_Data_Charges]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[Total_Extra_Data_Charges]"
+                      name="Total_Extra_Data_Charges" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Dim_Internet_Service_Details.Paths[Lookup Match Output]"
+              endId="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - Dim_Internet_Service_Details.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="248,42"
+          Id="Package\DFT - Dim_Internet_Service_Details"
+          TopLeft="325,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Dim_Internet_Service_Details">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="248,42"
+          Id="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table"
+          TopLeft="350,50" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type"
+          TopLeft="417,138" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details"
+          TopLeft="328,220" />
+        <EdgeLayout
+          Id="Package\DFT - Dim_Internet_Service_Details.Paths[OLE DB Source Output]"
+          TopLeft="474,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,46"
+              Start="0,0"
+              End="30,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="26,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,23"
+                    Point2="30,23"
+                    Point3="30,27" />
+                  <mssgle:LineSegment
+                    End="30,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Dim_Internet_Service_Details.Paths[Lookup Match Output]"
+          TopLeft="504,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49,40"
+              Start="0,0"
+              End="-49,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-45,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45,20"
+                    Point2="-49,20"
+                    Point3="-49,24" />
+                  <mssgle:LineSegment
+                    End="-49,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-72.69138671875,25,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Dim_Internet_Service_Details\SRC - Internet_Service_Detail Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Dim_Internet_Service_Details\LKP - Internet_Type">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Dim_Internet_Service_Details\DEST - Dim_Internet_Service_Details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

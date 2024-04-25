@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Distenation DW"
+  DTS:DTSID="{D82386C5-5BE8-4C78-9895-EBF96BC025AB}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=TelecomChurmDWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-TelecomChurmDWH-{D82386C5-5BE8-4C78-9895-EBF96BC025AB}LocalHost.TelecomChurmDWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
